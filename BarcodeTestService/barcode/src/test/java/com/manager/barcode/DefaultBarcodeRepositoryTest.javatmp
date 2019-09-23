@@ -1,0 +1,70 @@
+package com.manager.barcode;
+
+import com.manager.barcode.models.Barcode;
+import com.manager.barcode.repository.DefaultBarcodeRepository;
+
+import org.junit.Before;
+//import org.junit.Test;
+import org.junit.runner.RunWith;
+
+//import java.sql.SQLException;
+//import java.util.Optional;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+//import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+//import org.springframework.jdbc.core.RowMapper;
+
+//import static org.junit.Assert.assertFalse;
+//import static org.junit.Assert.assertTrue;
+//import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.ArgumentMatchers.anyObject;
+//import static org.mockito.ArgumentMatchers.anyString;
+//import static org.mockito.ArgumentMatchers.anyVararg;
+//import static org.mockito.ArgumentMatchers.eq;
+//import static org.mockito.Mockito.mock;
+//import static org.mockito.Mockito.when;
+//import static org.assertj.core.api.Assertions.assertThat;
+
+//@RunWith(MockitoJUnitRunner.class)
+public class DefaultBarcodeRepositoryTest {
+    
+    @Mock
+    private JdbcTemplate jdbcTemplate;
+    private DefaultBarcodeRepository target;
+    private Barcode barcode;
+
+    @Before
+    public void setUp() throws Exception {
+        MockitoAnnotations.initMocks(this);
+        target = new DefaultBarcodeRepository(jdbcTemplate);
+        barcode = new Barcode();
+        barcode.setId(100);
+        barcode.setBarcode("ASD123456789012");   
+    }
+/*
+    @Test
+    public void findById_recordNotFound()
+    {
+        Optional<Barcode> selectResult = target.findById( barcode.getId());
+        assertFalse(selectResult.isPresent());
+    }
+
+    @Test
+    public void findById_recordFound()  throws SQLException
+    {
+        //when(jdbcTemplate.queryForObject(anyString(), eq(Barcode.class), new BeanPropertyRowMapper < Barcode > (Barcode.class))).thenReturn(barcode);
+        RowMapper mapper = mock(RowMapper.class);
+
+        when(jdbcTemplate.queryForObject(eq(DefaultBarcodeRepository.FIND_BY_ID_SQL), eq(new Object[] { barcode.getId() }),
+        ))
+        .thenReturn(barcode);
+
+        Optional<Barcode> selectResult = target.findById( barcode.getId());
+
+        assertTrue(selectResult.isPresent());
+        assertTrue(selectResult.get().getId() == this.barcode.getId());
+        assertThat(selectResult.get().getBarcode()).isEqualTo(barcode.getBarcode());
+    }*/
+}
